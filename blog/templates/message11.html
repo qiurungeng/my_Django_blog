@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>留言板</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr class="danger">
+                    <th>留言时间</th>
+                    <th>留言者</th>
+                    <th>内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if messages %}
+                    {% for message in messages %}
+                        <tr class="{% cycle 'active' 'success' 'warning' 'info' %}">
+                            <td>{{ message.created_time}}</td>
+                            <td>{{ message.username }}</td>
+                            <td>{{ message.body }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4">无数据</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        <a class="btn btn-xs btn-info" href="/guestbook/create/">去留言</a>
+
+                    <section>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>From</h1>
+								<form>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+										    		<label class="radio-inline">
+													  	<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 匿名
+													</label>
+												</div>
+												<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+										    		<label class="radio-inline">
+													  	<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 登陆
+													</label>
+									   			 </div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="from-group">
+												<textarea class="form-control"  style= "background:transparent;" rows="7" name="message" id="message" placeholder="Message..."></textarea>
+											</div>
+											<p>
+											  <a href="#" type="button" class="btn btn-tobais btn-send">SEND MESSAGE</a>
+											  <a href="#" type="button" class="btn btn-tobais btn-reset">RESET</a>
+											</p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</section>
+    </body>
+</html>

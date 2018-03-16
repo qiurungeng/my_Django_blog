@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <article class="article article-{{ article.pk }}">
+          <h2>{{ article.title }}</h2><div class="clr"></div>
+          <p><span class="date">Date: <a href="#">{{ article.created_time }}</a></span> &nbsp;|&nbsp; Posted by <a href="#">{{ article.author }}</a> &nbsp;|&nbsp; Filed under <a href="#">{{ article.category.name }}</a></p>
+          <p>{{ article.content|safe }}</p>
+          <p class="spec"><a href="#" class="com"><span>↓</span> Comments</a> </p>
+    </article>
+    <div class="article">
+          <h2>Responses:</h2><div class="clr"></div>
+        {% for comment in comment_list %}
+          <div class="comment">
+            <a href="#"><img src="/static/blue/images/userpic.gif" width="40" height="40" alt="user" class="userpic" /></a>
+            <p><a href="#">{{ comment.name }}</a> Says:<br />{{ comment.created_time }}</p>
+            <p>{{ comment.text }}</p>
+          </div>
+            {% empty %}
+            暂无评论
+            {% endfor %}
+    </div>
+
+    <div class="article">
+          <h2><span>Leave a</span> Reply</h2><div class="clr"></div>
+          <form action="{% url 'comments:article_comment' article.pk %}" method="post" id="leavereply">
+          {% csrf_token %}
+          <ol><li>
+            <label>Name (required)</label>
+            {{ form.name }}
+                    {{ form.name.errors }}
+          </li><li>
+            <label>Email Address (required)</label>
+            {{form.email}}
+              {{ form.email.errors }}
+          </li><li>
+            <label>Your Message</label>
+            {{ form.text }}
+              {{ form.text.errors }}
+          </li><li>
+            <input type="image" name="imageField" id="imageField" src="/static/blue/images/submit.gif" class="send" />
+            <div class="clr"></div>
+          </li></ol>
+          </form>
+    </div>
+{% endblock main %}

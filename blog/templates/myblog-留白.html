@@ -1,0 +1,217 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<body>
+	<head>
+		<title> 人仰码翻</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+
+		<link rel="stylesheet" href="/static/css/magnific-popup.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+
+            <!-- css -->
+
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+        <!--此css白底 得改-->
+        <link rel="stylesheet" href="/static/myblog/css/custom.css">
+	</head>
+
+	<body style="background-image: url({% static "/images/bg4.jpg"%});">
+		<!-- Wrapper -->
+		<section class="head" id="header">
+			<div class="wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<header class="header">
+								<div class="inner">
+									<!-- Logo -->
+									<a href="#menu"class="nav-bars">
+										<img src="/static/images/nav_icon.svg" class="img-responsive" alt="Collapsable Navbar">
+									</a>
+									<a href="/" class="logo">
+										<span class="symbol"><img src="/static/images/logo.png" alt="Title" /></span><span class="title">人仰码翻</span>
+									</a>
+								</div>
+							</header>
+
+							<!-- Menu -->
+							<nav id="menu">
+								<h2>Menu</h2>
+								<ul>
+									<li><a href="/">首页</a></li>
+									<li><a href="/myblog.html">梅罢葛博客/urls</a></li>
+									<li><a href="/message.html">留言</a></li>
+
+									{% if  request.user.id %}
+									<li><span>你好:{{user.username}}</span></a></li>
+									<li><a href="logout"><span>退出</span></a></li>
+									{% else %}
+									<li><a href="/signup.html">注册</a></li>
+									<li><a href="/login">登陆</a></li>
+									{%  endif %}
+
+								</ul>
+							</nav>
+                            <div id="header-search-box">
+                            <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                                <div id="search-form" class="search-form">
+                                    <form role="search" method="get" id="searchform" action="#">
+                                    <input type="search" placeholder="搜索" required>
+                                        <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                                    </form>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+                {% for article in article_list %}
+                <article class="article article-{{ article.pk }}">
+                    <header class="entry-header">
+                        <h1 class="entry-title">
+                            <a href="/myblog.html">{{ article.title }}</a>
+                        </h1>
+                        <div class="entry-meta">
+                            <span class="article-category"><a href="#">{{ article.category.name }}</a></span>
+                            <span class="article-date"><a href="#"><time class="entry-date"
+                                                                      datetime="{{ article.created_time }}">{{ article.created_time }}</time></a></span>
+                            <span class="article-author"><a href="#">{{ article.author }}</a></span>
+                            <span class="comments-link"><a href="#">4 评论</a></span>
+                            <span class="views-count"><a href="#">588 阅读</a></span>
+                        </div>
+                    </header>
+                    <div class="entry-content clearfix">
+                        <p>{{ article.excerpt }}</p>
+                        <div class="read-more cl-effect-14">
+                            <a href="#" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+                        </div>
+                    </div>
+                </article>
+                {% empty %}
+                    <div class="no-article">暂时还没有发布的文章！</div>
+                {% endfor %}
+
+
+                <!-- 简单分页效果
+                <div class="pagination-simple">
+                    <a href="#">上一页</a>
+                    <span class="current">第 6 页 / 共 11 页</span>
+                    <a href="#">下一页</a>
+                </div>
+                -->
+                <div class="pagination">
+                    <ul>
+                        <li><a href="">1</a></li>
+                        <li><a href="">...</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li class="current"><a href="">6</a></li>
+                        <li><a href="">7</a></li>
+                        <li><a href="">8</a></li>
+                        <li><a href="">...</a></li>
+                        <li><a href="">11</a></li>
+                    </ul>
+                </div>
+            </main>
+            <aside class="col-md-4">
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">最新文章</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django 博客开发入门教程：前言</a>
+                        </li>
+                        <li>
+                            <a href="#">Django 博客使用 Markdown 自动生成文章目录</a>
+                        </li>
+                        <li>
+                            <a href="#">部署 Django 博客</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget widget-archives">
+                    <h3 class="widget-title">归档</h3>
+                    <ul>
+                        <li>
+                            <a href="#">2017 年 5 月</a>
+                        </li>
+                        <li>
+                            <a href="#">2017 年 4 月</a>
+                        </li>
+                        <li>
+                            <a href="#">2017 年 3 月</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget-category">
+                    <h3 class="widget-title">分类</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django 博客教程 <span class="post-count">(13)</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Python 教程 <span class="post-count">(11)</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Django 用户认证 <span class="post-count">(8)</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget-tag-cloud">
+                    <h3 class="widget-title">标签云</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django</a>
+                        </li>
+                        <li>
+                            <a href="#">Python</a>
+                        </li>
+                        <li>
+                            <a href="#">Java</a>
+                        </li>
+                        <li>
+                            <a href="#">笔记</a>
+                        </li>
+                        <li>
+                            <a href="#">文档</a>
+                        </li>
+                        <li>
+                            <a href="#">AngularJS</a>
+                        </li>
+                        <li>
+                            <a href="#">CSS</a>
+                        </li>
+                        <li>
+                            <a href="#">JavaScript</a>
+                        </li>
+                        <li>
+                            <a href="#">Snippet</a>
+                        </li>
+                        <li>
+                            <a href="#">jQuery</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rss">
+                    <a href=""><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+	</div>
+    <!--菜单的js-->
+		<script src="/static/js/jquery-3.1.0.min.js"></script>
+		<script src="/static/js/script.js"></script>
+    </body>
+</html>

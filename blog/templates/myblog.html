@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+        {% block main %}
+        {% for article in article_list %}
+        <article class="article article-{{ article.pk }}">
+          <h2>{{ article.title }}</h2><div class="clr"></div>
+          <p><span class="date">Date: <a href="#">{{ article.created_time }}</a></span> &nbsp;|&nbsp; Posted by <a href="#">{{ article.author }}</a> &nbsp;|&nbsp; Filed under <a href="#">{{ article.category.name }}</a></p>
+          <p>{{ article.excerpt }}</p>
+          <p class="spec"><a href="{{ article.get_absolute_url }}" class="com"><span>{{ article.comment_set.count }}</span> Comments</a> <a href="{{ article.get_absolute_url }}" class="rm">Read more &raquo;</a></p>
+        </article>
+        {% empty %}
+                    <div class="no-article">暂时还没有发布的文章！</div>
+        {% endfor %}
+
+
+        {% endblock main %}
+

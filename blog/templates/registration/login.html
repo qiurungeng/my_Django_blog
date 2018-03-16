@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+	<title>登录表单</title>
+
+	<!-- Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Style --> <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all">
+
+
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+	<h1>登录界面</h1>
+
+	<div class="container w3layouts agileits">
+
+
+            <h1>登 录</h1>
+			<form class="form" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {% for field in form %}
+                        {{ field }}
+                        {{ field.errors }}
+                        {% if field.help_text %}
+                             <p class="help text-small text-muted">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    {% endfor %}
+
+                <div class="send-button w3layouts agileits">
+					<input type="submit" value="登 录">
+				</div>
+			</form>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footer w3layouts agileits">
+		<p>Welcome - &copy; 😁 <li><a href="/">返回首页</a></li></p>
+	</div>
+
+</body>
+<!-- //Body -->
+
+</html>

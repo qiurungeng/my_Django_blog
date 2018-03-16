@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+	<title>登录表单</title>
+
+	<!-- Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Style --> <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all">
+
+
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+	<h1>注册界面</h1>
+
+
+	<div class="container w3layouts agileits">
+
+			<h1>注 册</h1>
+			<form class="form-horizontal" action="{{path}}" method="post">
+				{% csrf_token %}
+
+				<div class="form-group {%if form.username.errors%} has-error {%endif%}">
+				{{form.username}}
+				{%if form.username.errors%}
+				{% for error in form.username.errors %}
+                    {{ error|escape }}
+                  {% endfor %}
+				{%endif%}
+				</div>
+
+				<div class="form-group {%if form.password.errors%} has-error {%endif%}">
+				{{form.password}}
+				{%if form.password.errors%}
+				{% for error in form.password.errors %}
+                    {{ error|escape }}
+                  {% endfor %}
+				{%endif%}
+				</div>
+
+				<div class="form-group {%if form.password2.errors%} has-error {%endif%}">
+				{{form.confirm_password}}
+				{%if form.confirm_password.errors%}
+				{% for error in form.confirm_password.errors %}
+                    {{ error|escape }}
+                  {% endfor %}
+				{%endif%}
+				</div>
+
+				<div class="send-button w3layouts agileits">
+					<input type="submit" value="免费注册">
+				</div>
+				<div class="clear"></div>
+
+			</form>
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footer w3layouts agileits">
+		<p>Welcome - &copy; 😁 <li><a href="/">返回首页</a></li></p>
+	</div>
+
+</body>
+<!-- //Body -->
+
+</html>

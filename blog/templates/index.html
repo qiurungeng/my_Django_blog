@@ -1,0 +1,479 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 人仰码翻</title>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+
+
+		<link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+		<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+	</head>
+
+	<body style="background-image: url({% static "/images/bg7.jpg"%});">
+		<!-- Wrapper -->
+		<section class="head" id="header">
+			<div class="wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<header class="header">
+								<div class="inner">
+									<!-- Logo -->
+									<a href="#menu"class="nav-bars">
+										<img src="/static/images/nav_icon.svg" class="img-responsive" alt="Collapsable Navbar">
+									</a>
+									<a href="/" class="logo">
+										<span class="symbol"><img src="/static/images/logo.png" alt="Title" /></span><span class="title">人仰码翻</span>
+									</a>
+								</div>
+							</header>
+							<!-- Menu -->
+							<nav id="menu">
+								<h2>Menu</h2>
+								<ul>
+									<li><a href="/">首页</a></li>
+									<li><a href="/myblog.html">梅罢葛</a></li>
+									<li><a href="/message.html">留言</a></li>
+
+									{% if  request.user.id %}
+									<li><span>你好:{{user.username}}</span></a></li>
+									<li><a href="/logout"><span>退出</span></a></li>
+									{% else %}
+									<li><a href="/signup.html">注册</a></li>
+									<li><a href="/login">登陆</a></li>
+									{%  endif %}
+
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Main -->
+
+		<section class="main-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<ul class="text-center popup-social-contact">
+							<p class="drescription">前端模板自豪地采用了bootstrap，<span class="orange">学有余力会补一补前端知识.</span> 梅罢葛的首个线上博客上线啦！</p>
+						</ul>
+					</div>
+				</div>
+				<div class="tiles">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="a">
+								<a href="#test-popup-1" class="open-popup-link">
+									<img src="/static/images/11.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover glass">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">梅罢葛</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-1" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/11.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">梅罢葛</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">大家好我叫梅罢葛，如果你觉得我的名字拗口的话，可以叫我爸爸。这是我的个人学习博客。</p>
+													<p class="popup-parapraph">暂未开发</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="/myblog.html" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="a">
+								<a href="#test-popup-2" class="open-popup-link">
+									<img src="/static/images/22.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover shoes-glass">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">宋仁投</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-2" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/22.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">宋仁投</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">宋仁投，你的最佳队友。专注免费资源分享。</p>
+													<p class="popup-parapraph">暂未开发</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="#" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="a">
+								<a href="#test-popup-3" class="open-popup-link">
+									<img src="/static/images/33.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover hand-parts">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">Bodybuilder</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-3" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/33.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">Bodybuilder</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">健身学习交流分享专区</p>
+													<p class="popup-parapraph">暂未开发</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="#" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="a">
+								<a href="#test-popup-4" class="open-popup-link">
+									<img src="/static/images/444.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover table-with-phone">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">留个言吧</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-4" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/444.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">留言板</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">一个很随意的留言板</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="/message.html" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="a">
+								<a href="#test-popup-5" class="open-popup-link">
+									<img src="/static/images/55.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover orange-shoe">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">未开发</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-5" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/55.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">未开发</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发未开发</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="#" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="a">
+								<a href="#test-popup-6" class="open-popup-link">
+									<img src="/static/images/66.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover glass-shoes">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">待开发</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-6" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/66.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">待开发</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。还没有想好做什么。</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="#" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="a">
+								<a href="#test-popup-7" class="open-popup-link">
+									<img src="/static/images/77.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover 纯粹理性摇滚">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">纯粹理性摇滚</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-7" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/77.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">纯粹理性摇滚</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">摇滚乐科普扫盲专区</p>
+													<p class="popup-parapraph">暂未开发</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="#" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="a">
+								<a href="#test-popup-8" class="open-popup-link">
+									<img src="/static/images/88.jpg" class="img-responsive" alt="Responsive image">
+									<div class="img-hover egg-arts">
+										<div class="c-table">
+											<div class="ct-cell">
+												<h3 class="img-title">EGG ARTS</h3>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div id="test-popup-8" class="white-popup mfp-hide">
+							  	<div class="container-fluid">
+									<div class="row">
+										<div class="pop-up-color">
+											<div class="col-md-8 p-l-0 p-r-0">
+												<img src="/static/images/88.jpg" class="img-responsive" alt="Responsive image">
+											</div>
+											<div class="col-md-4">
+												<div>
+													<h2 class="popup-head">Egg Arts</h2>
+												</div>
+												<div>
+													<p class="popup-parapraph">学做博客其实也没什么卵用，赶紧补作业吧你。</p>
+												</div>
+												<div class="pop-up-icon">
+													<div class="row">
+														<ul class="text-center popup-social-contact">
+															<a href="#" type="button" class="btn btn-tobais btn-reset">前往</a>
+														</ul>														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact" style= "background-image: url({% static "images/bg6.jpg"%});">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6">
+						<h1>CONTACT INFO</h1>
+						<span class="contact-desc"></span>
+								You can contact me in these ways.(ಥ _ ಥ)
+							</p>
+							<p><Strong>QQ:</Strong> 708801794</p>
+							<p><Strong>WeChat: </Strong>Apollos_</p>
+							<p><Strong>Email: </Strong>708801794@qq.com</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="social-contact-icon">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-xs-12">
+						<ul class="text-center social-contact">
+							<li class="social-icons">
+								<a href="#" class="icon style2 fa-qq"><span class="label">QQ</span></a>
+							</li>
+							<li class="social-icons">
+								<a href="#" class="icon style2 fa-wechat"><span class="label">WeChat</span></a>
+							</li>
+						</ul>							
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section class="footer">		
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<p class="right-color">根据您的浏览记录为您推荐： <a href="http://mathe.neu.edu.cn/" target="_blank" title="震惊！男人看了沉默，女人看了流泪……">震惊！男人看了沉默，女人看了流泪！</a> <a href="https://neu.haizs.net/mathe/" title="十九岁少女竟然在宿舍被窝里偷偷看这个……" target="_blank">、十九岁少女竟然在宿舍被窝里偷偷看这个！</a>
+								<a href="http://59.110.152.99/" title="揭秘大学生的放荡生活……" target="_blank">、揭秘大学生的放荡生活……</a></p>
+						</div>
+						<div class="col-sm-6 col-xs-3" align="right">
+							<a href="#" id="back-to-top" class="top text-right" >返回顶部<i class="fa fa-angle-up" aria-hidden="true"></i> </a>
+						</div>
+					</div>
+				</div>											
+			</footer>
+		</section>
+
+	<!-- Scripts -->
+
+		<script src="/static/js/jquery-3.1.0.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="/static/js/jquery.magnific-popup.min.js"></script>
+
+		<script src="/static/js/script.js"></script>
+
+		<!--  ===== Scroll to Top ====  -->
+	    <script>
+			if ($('#back-to-top').length) {
+			    $('#back-to-top').on('click', function (e) {
+			        e.preventDefault();
+			        $('html,body').animate({
+			            scrollTop: 0
+			        }, 700);
+			    });
+			}
+		</script>
+		
+	</body>
+</html>
